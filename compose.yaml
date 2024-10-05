@@ -1,0 +1,35 @@
+name: stash
+
+services:
+  springboot:
+    build:
+      context: .
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres
+    networks:
+      - postgres
+
+  postgres:
+    container_name: postgresql
+    image: postgres
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "1234"
+      POSTGRES_DB: "users"
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+    restart: always
+
+volumes:
+  postgres:
+
+networks:
+  postgres:
+    driver: bridge
