@@ -1,0 +1,24 @@
+@HOST=localhost:8080
+
+
+### Signup new user
+POST /api/v1/auth/register
+Host: {{HOST}}
+Content-Type: application/json
+
+{
+    "firstname":"Sachin",
+    "lastname":"Prasanth",
+    "email":"sp6790@srmist.edu.in",
+    "password":"12345"
+}
+
+### Authenticate existing user
+POST /api/v1/auth/authencticate
+Host: {{HOST}}
+Content-Type: application/json
+
+{
+    "email":"sp6790@srmist.edu.in",
+    "password":"12345"
+}

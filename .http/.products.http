@@ -1,0 +1,42 @@
+@HOST=localhost:8080
+
+> {% client.global.set("token", response.body.token);  %}
+
+### Add a new product
+POST /api/v1/products/save
+Host: {{HOST}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "productName": "Wireless Headphones",
+  "productDesc": "High-quality wireless over-ear headphones with noise cancellation.",
+  "productPrice": 200,
+  "productStock": 50
+}
+
+
+### Get a product by its id
+GET /api/v1/products/1 HTTP/1.1
+Host: {{HOST}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Delete a product by its id
+DELETE /api/v1/products/1 HTTP/1.1
+Host: {{HOST}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Update a product by its id
+PUT /api/v1/products/1 HTTP/1.1
+Host: {{HOST}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "productName": "Wireless Headphones",
+  "productDesc": "High-quality wireless over-ear headphones with noise cancellation.",
+  "productPrice": 200,
+  "productStock": 50
+}
