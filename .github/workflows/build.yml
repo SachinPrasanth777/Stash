@@ -1,0 +1,29 @@
+name: Install and Setup
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2 
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Set up Maven
+        run: |
+          sudo apt-get install -y maven
+
+      - name: Run tests
+        run: mvn test
