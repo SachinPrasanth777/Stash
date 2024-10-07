@@ -1,5 +1,6 @@
 package com.project.manager.auth;
 
+import com.project.manager.config.ResponseMessage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthenticationController {
     private final AuthenticationService service;
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(
+    public ResponseEntity<ResponseMessage> register(
             @RequestBody RegisterRequest request
     )
     {
